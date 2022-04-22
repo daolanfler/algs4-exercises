@@ -1,12 +1,12 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * $ java-algs4 Practice_1_1_09.java 123
+ * $ java-algs4 Exercise09.java 123
  * 1111011
  */
-public class Practice_1_1_09 {
+public class Exercise09 {
     public static void main(String[] args) {
         int N = Integer.parseInt(args[0]);
 

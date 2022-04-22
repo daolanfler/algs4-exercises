@@ -1,8 +1,8 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class Practice_1_1_16 {
+public class Exercise16 {
     public static String exR1(int n) {
         if (n <= 0) return "";
         return exR1(n - 3) + n + exR1(n - 2) + n;
@@ -15,6 +15,6 @@ public class Practice_1_1_16 {
     }
 }
 
-//    $ java-algs4 Practice_1_1_16.java
+//    $ java-algs4 Exercise16.java
 //        311361142246
 //

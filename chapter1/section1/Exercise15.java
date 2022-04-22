@@ -1,8 +1,8 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class Practice_1_1_15 {
+public class Exercise15 {
     public static int[] histogram(int[] arr, int M) {
         int[] res = new int[M];
         for (int i = 0; i < M; i++) {
@@ -29,7 +29,7 @@ public class Practice_1_1_15 {
 
     }
 }
-//    $ java-algs4 Practice_1_1_15.java
+//    $ java-algs4 Exercise15.java
 //        0 1 1 1 2 1 1 0 0 0 0 0 0
 //        sum of res and length of array is equal?
 //        true

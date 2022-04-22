@@ -1,8 +1,8 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class Practice_1_1_12 {
+public class Exercise12 {
     public static void main(String[] args) {
         int[] a = new int[10];
         for (int i = 0; i < 10; i++)
@@ -16,7 +16,7 @@ public class Practice_1_1_12 {
     }
 }
 
-// $ java-algs4 Practice_1_1_12.java
+// $ java-algs4 Exercise12.java
 // 0, 0
 // 1, 1
 // 2, 2

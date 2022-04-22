@@ -1,15 +1,15 @@
-package Ch_1_2_Data_Abstraction;
-
-import java.awt.Color;
+package chapter1.section2;
 
 import edu.princeton.cs.algs4.Point2D;
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdRandom;
 
+import java.awt.*;
+
 /**
- * Practice_1_2_01
+ * Exercise01
  */
-public class Practice_1_2_01 {
+public class Exercise01 {
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         Point2D[] arr = new Point2D[n];

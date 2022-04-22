@@ -1,8 +1,8 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class Practice_1_1_04 {
+public class Exercise04 {
     public static void main(String[] args) {
         // if (a > b) then c = 0
 

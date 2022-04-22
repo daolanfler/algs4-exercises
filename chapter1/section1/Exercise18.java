@@ -1,8 +1,8 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class Practice_1_1_18 {
+public class Exercise18 {
     // returns a * b  a + 2a + 4a + ... 2^(log<2>(b+1) -1) * a = a * b
     public static int mystery(int a, int b) {
         if (b == 0) return 0;
@@ -28,7 +28,7 @@ public class Practice_1_1_18 {
         StdOut.println(mystery2(2, 8));
     }
 }
-//    $ java-algs4 Practice_1_1_18.java
+//    $ java-algs4 Exercise18.java
 //        50
 //        33
 //        36

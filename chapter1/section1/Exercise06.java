@@ -1,9 +1,9 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * $ java-algs4 Practice_1_1_6.java
+ * $ java-algs4 Exercise06.java
  * 0
  * 1
  * 1
@@ -21,7 +21,7 @@ import edu.princeton.cs.algs4.StdOut;
  * 377
  * 610
  */
-public class Practice_1_1_06 {
+public class Exercise06 {
     public static void main(String[] args) {
         int f = 0;
         int g = 1;

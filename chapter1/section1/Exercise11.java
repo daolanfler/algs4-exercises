@@ -1,12 +1,12 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
 /**
- * $ java-algs4 Practice_1_1_11.java
+ * $ java-algs4 Exercise11.java
  */
-public class Practice_1_1_11 {
+public class Exercise11 {
     public static void main(String[] args) {
 
         boolean[][] a = sourceArr(StdRandom.uniform(15, 66), StdRandom.uniform(12, 30));
@@ -63,9 +63,9 @@ public class Practice_1_1_11 {
 }
 
 // @formatter:off
-// $ java-algs4 Practice_1_1_11.java 
-//      1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   
-// 1         *    *    *    *    *    *    *    *    *         *    *    *    *    *    *    *    *    *    *    *         *         *    
+// $ java-algs4 Exercise11.java
+//      1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26
+// 1         *    *    *    *    *    *    *    *    *         *    *    *    *    *    *    *    *    *    *    *         *         *
 // 25   *    *         *    *    *    *    *    *    *    *         *    *         *         *    *    *    *         *    *    *    *
 // 26   *    *    *    *         *    *         *    *    *    *    *    *    *         *    *    *    *         *    *    *    *    *
 // 27   *    *    *    *    *    *    *         *    *    *    *    *    *    *    *    *         *    *    *    *         *         *

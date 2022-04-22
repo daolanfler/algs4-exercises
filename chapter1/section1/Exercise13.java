@@ -1,9 +1,9 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
-public class Practice_1_1_13 {
+public class Exercise13 {
 
     public static void transpose(int[][] matrix) {
         int m = matrix.length;
@@ -53,7 +53,7 @@ public class Practice_1_1_13 {
 
 }
 
-// $ java-algs4 Practice_1_1_13.java  3 4
+// $ java-algs4 Exercise13.java  3 4
 // Original matrix is:
 // 17  3   85  44
 // 48  43  93  30

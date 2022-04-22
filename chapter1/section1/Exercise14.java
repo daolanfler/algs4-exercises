@@ -1,8 +1,8 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class Practice_1_1_14 {
+public class Exercise14 {
 
     public static int lg(int N) {
         int m = 0;
@@ -12,7 +12,7 @@ public class Practice_1_1_14 {
     }
 
     /**
-     * $ java-algs4 Practice_1_1_14.java 100
+     * $ java-algs4 Exercise14.java 100
      * Biggest integer <= log(2)100 is: 6
      */
     public static void main(String[] args) {

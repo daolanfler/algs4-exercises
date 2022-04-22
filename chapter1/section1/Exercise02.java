@@ -1,4 +1,4 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
@@ -9,7 +9,7 @@ import edu.princeton.cs.algs4.StdOut;
  * true
  * 33
  */
-public class Practice_1_1_02 {
+public class Exercise02 {
     public static void main(String[] args) {
         StdOut.println((1 + 2.236) / 2);
 

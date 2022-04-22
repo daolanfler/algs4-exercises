@@ -1,15 +1,15 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * $ java-algs4 Practice_1_1_5.java 0.3343 0
+ * $ java-algs4 Exercise05.java 0.3343 0
  * true
- * 
- * $ java-algs4 Practice_1_1_5.java 0.3343 1.2
+ * <p>
+ * $ java-algs4 Exercise05.java 0.3343 1.2
  * false
  */
-public class Practice_1_1_05 {
+public class Exercise05 {
     public static void main(String[] args) {
         double x = Double.parseDouble(args[0]);
         double y = Double.parseDouble(args[1]);

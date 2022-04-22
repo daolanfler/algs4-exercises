@@ -1,15 +1,15 @@
-package Ch_1_1_Basic_Programming_Model;
+package chapter1.section1;
 
 import edu.princeton.cs.algs4.StdOut;
 
 /**
- * $ java-algs4 Practice_1_1_3.java 12 12 13
+ * $ java-algs4 Exercise03.java 12 12 13
  * not equal
- * 
- * $ java-algs4 Practice_1_1_3.java 12 12 12
+ * <p>
+ * $ java-algs4 Exercise03.java 12 12 12
  * equal
  */
-public class Practice_1_1_03 {
+public class Exercise03 {
     public static void main(String[] args) {
         int a = Integer.parseInt(args[0]);
         int b = Integer.parseInt(args[1]);
