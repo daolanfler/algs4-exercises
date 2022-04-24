@@ -27,7 +27,7 @@ public class Exercise11 {
 
         for (int i = 0; i < m; i++)
             for (int j = 0; j < n; j++)
-                a[i][j] = StdRandom.bernoulli(0.75) ? true : false;
+                a[i][j] = StdRandom.bernoulli(0.75);
 
         return a;
     }

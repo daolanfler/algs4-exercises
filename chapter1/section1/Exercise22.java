@@ -24,17 +24,18 @@ public class Exercise22 {
         return rank(key, 0, arr.length - 1, arr, 0);
     }
 
-    //    public static int rank(int key, int[] a) {
-//        int lo = 0;
-//        int hi = a.length - 1;
-//        while (hi >= lo) {
-//            int mid = (lo + hi) / 2;
-//            if (a[mid] > key) hi = mid - 1;
-//            else if (a[mid] < key) lo = mid + 1;
-//            else return mid;
-//        }
-//        return -1;
-//    }
+    public static int rankOriginal(int key, int[] a) {
+        int lo = 0;
+        int hi = a.length - 1;
+        while (hi >= lo) {
+            int mid = (lo + hi) / 2;
+            if (a[mid] > key) hi = mid - 1;
+            else if (a[mid] < key) lo = mid + 1;
+            else return mid;
+        }
+        return -1;
+    }
+
     public static int rank(int key, int lo, int hi, int[] a, int level) {
         StdOut.println("  ".repeat(level) + "low: " + lo + " " + "high: " + hi);
         if (lo > hi) return -1;
