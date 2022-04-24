@@ -34,7 +34,7 @@ public class Exercise23 {
         boolean isWhitelistMode = args[1].equals("+");
         while (!StdIn.isEmpty()) {
             int key = StdIn.readInt();
-            // 如果需要使用 Exercise23 中的 binarySearch 则需要先编译它
+            // 如果需要使用 Exercise22 中的 binarySearch 则需要先编译它
             boolean isInList = binarySearch(key, whitelist) > 0;
             if (isWhitelistMode) {
                 if (!isInList) StdOut.println("Number not in whitelist: " + key);
@@ -44,6 +44,8 @@ public class Exercise23 {
         }
     }
 }
+
+
 //    git bash 命令行中拼接多个路径到一个参数很奇怪 `\;` 但是 PATH 又可以用 `:`
 //    https://stackoverflow.com/questions/46066210/failed-to-run-a-java-app-with-git-bash
 //    $ java -classpath ./lib/algs4.jar\;out/production/exercises/  chapter1/section1/Exercise23.java  hello/tinyW.txt +
