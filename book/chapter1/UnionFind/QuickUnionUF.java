@@ -3,11 +3,11 @@ package book.chapter1.UnionFind;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class UF {
+public class QuickUnionUF {
     private int[] id;
     private int count;
 
-    public UF(int N) {
+    public QuickUnionUF(int N) {
         count = N;
         id = new int[N];
         for (int i = 0; i < N; i++)
@@ -24,7 +24,10 @@ public class UF {
 
     public int find(int p) {
         validate(p);
-        return id[p];
+        while(p != id[p]) {
+            p = id[p];
+        }
+        return p;
     }
 
     // validate that p is a valid index
@@ -37,18 +40,17 @@ public class UF {
 
 
     public void union(int p, int q) {
-        int pID = find(p);
-        int qID = find(q);
-        if (qID == pID) return;
+        int pRoot = find(p);
+        int qRoot = find(q);
+        if (pRoot == qRoot) return;
+        id[pRoot] = qRoot;
 
-        for (int i = 0; i < id.length; i++)
-            if (id[i] == pID) id[i] = qID;
         count--;
     }
 
     public static void main(String[] args) {
         int N = StdIn.readInt();
-        UF uf = new UF(N);
+        QuickUnionUF uf = new QuickUnionUF(N);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
@@ -61,3 +63,5 @@ public class UF {
     }
 
 }
+
+// java-algs4 book/chapter1/UnionFind/QuickUnionUF.java < ~/Desktop/Algorithms/union-find/largeUF.txt 
