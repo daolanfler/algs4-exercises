@@ -5,28 +5,35 @@ import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Arrays;
 
-public class Exercise1 {
-
+// weighted quick-union
+public class Exercise3 {
     static class UF {
-        private int count; // count of components
-        private int[] id;
+        private int count;
         private int cost;
+        private int[] id;
+        private int[] size;
 
         public UF(int N) {
             id = new int[N];
+            size = new int[N];
             for (int i = 0; i < N; i++) {
                 id[i] = i;
                 count++;
+                size[i] = 1;
             }
         }
 
         public boolean connected(int p, int q) {
-            return id[p] == id[q];
+            return find(p) == find(q);
         }
 
         public int find(int p) {
+            while (p != id[p]) {
+                cost += 2;
+                p = id[p];
+            }
             cost++;
-            return id[p];
+            return p;
         }
 
         public void union(int p, int q) {
@@ -35,15 +42,16 @@ public class Exercise1 {
             int rootQ = find(q);
             if (rootP == rootQ)
                 return;
-            for (int i = 0; i < id.length; i++) {
-                if (find(i) == rootP) {
-                    id[i] = rootQ;
-                    cost++;
-                }
+            if (size[rootP] < size[rootQ]) {
+                id[rootP] = rootQ;
+                size[rootQ] += size[rootP];
+            } else {
+                id[rootQ] = rootP;
+                size[rootP] += size[rootQ];
             }
+            cost++;
             count--;
         }
-
     }
 
     public static void main(String[] args) {
@@ -65,17 +73,16 @@ public class Exercise1 {
     }
 }
 
-/* output: 
-$ java-algs4 chapter1/section5/Exercise1.java <  chapter1/section5/tinyInput.txt
+/* output:
 initial array:   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-9-0 id array is: [0, 1, 2, 3, 4, 5, 6, 7, 8, 0] cost is: 13 total cost is: 13
-3-4 id array is: [0, 1, 2, 4, 4, 5, 6, 7, 8, 0] cost is: 13 total cost is: 26
-5-8 id array is: [0, 1, 2, 4, 4, 8, 6, 7, 8, 0] cost is: 13 total cost is: 39
-7-2 id array is: [0, 1, 2, 4, 4, 8, 6, 2, 8, 0] cost is: 13 total cost is: 52
-2-1 id array is: [0, 1, 1, 4, 4, 8, 6, 1, 8, 0] cost is: 14 total cost is: 66
-5-7 id array is: [0, 1, 1, 4, 4, 1, 6, 1, 1, 0] cost is: 14 total cost is: 80
-0-3 id array is: [4, 1, 1, 4, 4, 1, 6, 1, 1, 4] cost is: 14 total cost is: 94
-4-2 id array is: [1, 1, 1, 1, 1, 1, 6, 1, 1, 1] cost is: 16 total cost is: 110
+9-0 id array is: [9, 1, 2, 3, 4, 5, 6, 7, 8, 9] cost is: 3 total cost is: 3
+3-4 id array is: [9, 1, 2, 3, 3, 5, 6, 7, 8, 9] cost is: 3 total cost is: 6
+5-8 id array is: [9, 1, 2, 3, 3, 5, 6, 7, 5, 9] cost is: 3 total cost is: 9
+7-2 id array is: [9, 1, 7, 3, 3, 5, 6, 7, 5, 9] cost is: 3 total cost is: 12
+2-1 id array is: [9, 7, 7, 3, 3, 5, 6, 7, 5, 9] cost is: 5 total cost is: 17
+5-7 id array is: [9, 7, 7, 3, 3, 7, 6, 7, 5, 9] cost is: 3 total cost is: 20
+0-3 id array is: [9, 7, 7, 9, 3, 7, 6, 7, 5, 9] cost is: 5 total cost is: 25
+4-2 id array is: [9, 7, 7, 9, 3, 7, 6, 7, 5, 7] cost is: 9 total cost is: 34
 total components: 2
 
  */
