@@ -74,6 +74,7 @@ public class Exercise3 {
 }
 
 /* output:
+$ java-algs4 chapter1/section5/Exercise3.java < chapter1/section5/tinyInput.txt
 initial array:   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 9-0 id array is: [9, 1, 2, 3, 4, 5, 6, 7, 8, 9] cost is: 3 total cost is: 3
 3-4 id array is: [9, 1, 2, 3, 3, 5, 6, 7, 8, 9] cost is: 3 total cost is: 6
