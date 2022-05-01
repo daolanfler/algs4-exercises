@@ -5,8 +5,8 @@ import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Arrays;
 
-// weighted quick-union
 public class Exercise3 {
+    // weighted quick-union (no path compression)
     static class UF {
         private int count;
         private int cost;
