@@ -74,6 +74,14 @@ public class Exercise16 {
             return p;
         }
 
+        public int count() {
+            return count;
+        }
+
+        public int[] idArr() {
+            return id;
+        }
+
         public void union(int p, int q) {
             cost = 0;
             int rootP = find(p);
