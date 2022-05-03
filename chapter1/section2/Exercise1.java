@@ -6,10 +6,7 @@ import edu.princeton.cs.algs4.StdRandom;
 
 import java.awt.*;
 
-/**
- * Exercise01
- */
-public class Exercise01 {
+public class Exercise1 {
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
         Point2D[] arr = new Point2D[n];
@@ -22,15 +19,13 @@ public class Exercise01 {
 
         for (int i = 0; i < n; i++) {
             Point2D a = arr[i];
-            for (int j = 0; j < n; j++) {
-                if (j != i) {
-                    Point2D b = arr[j];
-                    double d = a.distanceTo(b);
-                    if (d < distance) {
-                        indexA = i;
-                        indexB = j;
-                        distance = d;
-                    }
+            for (int j = i +1; j < n; j++) {
+                Point2D b = arr[j];
+                double d = a.distanceTo(b);
+                if (d < distance) {
+                    indexA = i;
+                    indexB = j;
+                    distance = d;
                 }
             }
         }
