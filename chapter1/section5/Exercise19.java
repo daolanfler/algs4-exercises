@@ -89,7 +89,7 @@ public class Exercise19 {
         }
     }
 
-    public static int[] getInitalArr(int N) {
+    public static int[] getInitialArr(int N) {
         int[] arr = new int[N];
         for (int i = 0; i < N; i++) {
             arr[i] = i;
