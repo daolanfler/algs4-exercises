@@ -2,12 +2,13 @@ package chapter1.section2;
 
 import edu.princeton.cs.algs4.StdOut;
 
-public class Exercise16 {
-    public static class Rational {
+public class Exercise17 {
+    public static class RobustRational {
         private long numerator;
         private long denominator;
+        private static final String OVERFLOW_MESSAGE = "Operation will cause overlow";
 
-        public Rational(int numerator, int denominator) {
+        public RobustRational(int numerator, int denominator) {
             // 分子 分母
             if (denominator == 0) {
                 throw new IllegalArgumentException("denominator cannot be 0");
@@ -20,28 +21,39 @@ public class Exercise16 {
             this.denominator /= gcd;
         }
 
-        public Rational plus(Rational b) {
+        public RobustRational plus(RobustRational b) {
             long numerator = this.numerator * b.denominator + b.numerator * this.denominator;
             long denominator = this.denominator * b.denominator;
-            return new Rational((int) numerator, (int) denominator);
+            validate(numerator, denominator);
+            return new RobustRational((int) numerator, (int) denominator);
         }
 
-        public Rational minus(Rational b) {
+        public RobustRational minus(RobustRational b) {
             long numerator = this.numerator * b.denominator - b.numerator * this.denominator;
             long denominator = this.denominator * b.denominator;
-            return new Rational((int) numerator, (int) denominator);
+            validate(numerator, denominator);
+            return new RobustRational((int) numerator, (int) denominator);
         }
 
-        public Rational multiply(Rational b) {
+        public RobustRational multiply(RobustRational b) {
             long numerator = this.numerator * b.numerator;
             long denominator = this.denominator * b.denominator;
-            return new Rational((int) numerator, (int) denominator);
+            validate(numerator, denominator);
+            return new RobustRational((int) numerator, (int) denominator);
         }
 
-        public Rational divide(Rational b) {
+        public RobustRational divide(RobustRational b) {
             long numerator = this.numerator * b.denominator;
             long denominator = this.denominator * b.numerator;
-            return new Rational((int) numerator, (int) denominator);
+            validate(numerator, denominator);
+            return new RobustRational((int) numerator, (int) denominator);
+        }
+
+        private void validate(long numerator, long denominator) {
+            assert numerator >= Integer.MIN_VALUE : OVERFLOW_MESSAGE;
+            assert numerator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
+            assert denominator >= Integer.MIN_VALUE : OVERFLOW_MESSAGE;
+            assert denominator <= Integer.MAX_VALUE : OVERFLOW_MESSAGE;
         }
 
         @Override
@@ -52,7 +64,7 @@ public class Exercise16 {
                 return false;
             if (this.getClass() != that.getClass())
                 return false;
-            Rational r = (Rational) that;
+            RobustRational r = (RobustRational) that;
             if (r.denominator != this.denominator)
                 return false;
             if (r.numerator != this.numerator)
@@ -72,9 +84,9 @@ public class Exercise16 {
         }
 
         public static void main(String[] args) {
-            Rational a = new Rational(3, 4);
-            Rational b = new Rational(6, 8);
-            Rational c = new Rational(217, 712);
+            RobustRational a = new RobustRational(3, 4);
+            RobustRational b = new RobustRational(6, 8);
+            RobustRational c = new RobustRational(217, 712);
 
             StdOut.println("Check Plus: " + a + " + " + b + "? " + a.plus(b) + "  Expected: 3/2");
             StdOut.println("Check Minus: " + a + " - " + b + "? " + a.minus(b) + "  Expected: 0/1");
@@ -82,10 +94,17 @@ public class Exercise16 {
             StdOut.println("Check Divide: " + a + " / " + b + "? " + a.divide(b) + "  Expected: 1/1");
             StdOut.println("Check Equal: " + a + " == " + b + "? " + a.equals(b) + "  Expected: true");
             StdOut.println("Check Equal: " + a + " == " + c + "? " + a.equals(c) + "  Expected: false");
+
+            // Would cause an overflow
+            RobustRational r1 = new RobustRational(-2147483648, 1);
+            RobustRational r2 = new RobustRational(-1, 1);
+            r1.plus(r2);
+            StdOut.println(r1.plus(r2));
         }
     }
 
     public static void main(String[] args) {
+        // -enableassertions  开启
         /**
          * Check Plus: 3/4 + 3/4? 3/2 Expected: 3/2
          * Check Minus: 3/4 - 3/4? 0/1 Expected: 0/1
@@ -93,6 +112,11 @@ public class Exercise16 {
          * Check Divide: 3/4 / 3/4? 1/1 Expected: 1/1
          * Check Equal: 3/4 == 3/4? true Expected: true
          * Check Equal: 3/4 == 217/712? false Expected: false
+         * Exception in thread "main" java.lang.AssertionError: Operation will cause
+         * overlow
+         * at chapter1.section2.Exercise17$RobustRational.validate(Exercise17.java:53)
+         * at chapter1.section2.Exercise17$RobustRational.plus(Exercise17.java:27)
+         * at chapter1.section2.Exercise17$RobustRational.main(Exercise17.java:101)
          */
     }
 }
