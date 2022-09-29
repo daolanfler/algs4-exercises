@@ -29,10 +29,12 @@ public class Exercise19 {
         StdDraw.setPenColor(Color.red);
         StdDraw.setPenRadius();
         QuickUnionUF uf = new QuickUnionUF(N);
-        for (int i = 0; i < 16; i++) {
-            Exercise18_RandomGrid.Connection connection = connections[i];
-            int p = connection.p;
-            int q = connection.q;
+        
+        StdOut.println("connection sizes is :" + connections.length);
+        
+        for (int i = 0; i < connections.length; i++) {
+            int p = connections[i].p;
+            int q = connections[i].q;
             if (uf.find(p) == uf.find(q)) continue;
             uf.union(p, q);
             drawConnection(p, q);

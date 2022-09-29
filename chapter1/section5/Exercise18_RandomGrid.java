@@ -5,8 +5,8 @@ import edu.princeton.cs.algs4.StdOut;
 
 public class Exercise18_RandomGrid {
     public static class Connection {
-        int p;
-        int q;
+        public int p;
+        public int q;
 
         public Connection(int p, int q) {
             this.p = p;
