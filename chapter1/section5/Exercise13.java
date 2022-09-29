@@ -6,18 +6,18 @@ import java.util.Arrays;
 
 public class Exercise13 {
     // 使用路径压缩的加权 quick-union (weighted quick-union with path compression)
-    static class UF {
+    static class WeightedQuickUnionPathCompression {
         private int count;
         private int cost;
         private int[] id;
         private int[] size;
 
-        public UF(int N) {
+        public WeightedQuickUnionPathCompression(int N) {
             id = new int[N];
             size = new int[N];
+            count = N;
             for (int i = 0; i < N; i++) {
                 id[i] = i;
-                count++;
                 size[i] = 1;
             }
         }
@@ -64,7 +64,7 @@ public class Exercise13 {
     public static void main(String[] args) {
         // 最大的高度也只有 lgN ，所以触点个数至少为 16个
         int N = 16;
-        UF a = new UF(N);
+        WeightedQuickUnionPathCompression a = new WeightedQuickUnionPathCompression(N);
         StdOut.println("   initial array:   " + Arrays.toString(a.id));
         int total = 0;
         // 给出一条输入使得该方法能产生一条长度为 4 的路径
@@ -101,7 +101,7 @@ public class Exercise13 {
 }
 /**
  * $ java-algs4 chapter1/section5/Exercise13.java
- * initial array:   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+ * initial array:      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
  * 0-1    id array is: [0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] cost is: 3
  * 2-3    id array is: [0, 0, 2, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] cost is: 3
  * 4-5    id array is: [0, 0, 2, 2, 4, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] cost is: 3
@@ -119,6 +119,5 @@ public class Exercise13 {
  * 0-8    id array is: [0, 0, 0, 2, 0, 4, 4, 6, 0, 8, 8, 10, 8, 12, 12, 14] cost is: 3
  * total cost is: 45
  * total components: 1
- * <p>
  * 最长路径为 0-8-12-14-15
  */

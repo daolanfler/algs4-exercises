@@ -1,17 +1,22 @@
-package book.chapter1.UnionFind;
+package book.chapter1.section5_UnionFind;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class QuickFindUF {
+public class WeightQuickUnionUF {
     private int[] id;
     private int count;
+    private int[] size;
 
-    public QuickFindUF(int N) {
+    public WeightQuickUnionUF(int N) {
         count = N;
         id = new int[N];
-        for (int i = 0; i < N; i++)
+        size = new int[N];
+        for (int i = 0; i < N; i++) {
+            size[i] = 1;
             id[i] = i;
+
+        }
     }
 
     public int count() {
@@ -24,7 +29,11 @@ public class QuickFindUF {
 
     public int find(int p) {
         validate(p);
-        return id[p];
+        while (p != id[p]) {
+            id[p] = id[id[p]];
+            p = id[p];
+        }
+        return p;
     }
 
     // validate that p is a valid index
@@ -35,31 +44,35 @@ public class QuickFindUF {
         }
     }
 
-
     public void union(int p, int q) {
-        int pID = find(p);
-        int qID = find(q);
-        if (qID == pID) return;
+        int pRoot = find(p);
+        int qRoot = find(q);
+        if (pRoot == qRoot)
+            return;
+        if (size[pRoot] <= size[qRoot]) {
+            id[pRoot] = qRoot;
+            size[qRoot] += size[pRoot];
+        } else {
+            id[qRoot] = pRoot;
+            size[pRoot] += size[qRoot];
+        }
 
-        for (int i = 0; i < id.length; i++)
-            if (id[i] == pID) id[i] = qID;
         count--;
     }
 
     public static void main(String[] args) {
         int N = StdIn.readInt();
-        QuickFindUF quickFindUF = new QuickFindUF(N);
+        WeightQuickUnionUF uf = new WeightQuickUnionUF(N);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (quickFindUF.connected(p, q)) continue;
-            quickFindUF.union(p, q);
+            if (uf.connected(p, q))
+                continue;
+            uf.union(p, q);
             StdOut.println(p + " " + q);
 
         }
-        StdOut.println(quickFindUF.count() + " components");
+        StdOut.println(uf.count() + " components");
     }
 
 }
-
-// java-algs4 book/chapter1/UnionFind/QuickFindUF.java < ~/Desktop/Algorithms/union-find/tinyUF.txt

@@ -83,7 +83,7 @@ public class Exercise34_RandomBag<Item> implements Iterable<Item> {
     }
 
     public static void main(String[] args) {
-        Exercise34_RandomBag<Integer> randomBag = new Exercise34_RandomBag<>();
+        Exercise34_RandomBag<Integer> randomBag = new Exercise34_RandomBag<Integer>();
         randomBag.add(1);
         randomBag.add(2);
         randomBag.add(3);

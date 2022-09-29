@@ -1,22 +1,17 @@
-package book.chapter1.UnionFind;
+package book.chapter1.section5_UnionFind;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class WeightQuickUnionUF {
+public class QuickUnionUF {
     private int[] id;
     private int count;
-    private int[] size;
 
-    public WeightQuickUnionUF(int N) {
+    public QuickUnionUF(int N) {
         count = N;
         id = new int[N];
-        size = new int[N];
-        for (int i = 0; i < N; i++) {
-            size[i] = 1;
+        for (int i = 0; i < N; i++)
             id[i] = i;
-
-        }
     }
 
     public int count() {
@@ -30,7 +25,6 @@ public class WeightQuickUnionUF {
     public int find(int p) {
         validate(p);
         while (p != id[p]) {
-            id[p] = id[id[p]];
             p = id[p];
         }
         return p;
@@ -44,30 +38,23 @@ public class WeightQuickUnionUF {
         }
     }
 
+
     public void union(int p, int q) {
         int pRoot = find(p);
         int qRoot = find(q);
-        if (pRoot == qRoot)
-            return;
-        if (size[pRoot] <= size[qRoot]) {
-            id[pRoot] = qRoot;
-            size[qRoot] += size[pRoot];
-        } else {
-            id[qRoot] = pRoot;
-            size[pRoot] += size[qRoot];
-        }
+        if (pRoot == qRoot) return;
+        id[pRoot] = qRoot;
 
         count--;
     }
 
     public static void main(String[] args) {
         int N = StdIn.readInt();
-        WeightQuickUnionUF uf = new WeightQuickUnionUF(N);
+        QuickUnionUF uf = new QuickUnionUF(N);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (uf.connected(p, q))
-                continue;
+            if (uf.connected(p, q)) continue;
             uf.union(p, q);
             StdOut.println(p + " " + q);
 
@@ -76,3 +63,5 @@ public class WeightQuickUnionUF {
     }
 
 }
+
+// java-algs4 book/chapter1/UnionFind/QuickUnionUF.java < ~/Desktop/Algorithms/union-find/largeUF.txt

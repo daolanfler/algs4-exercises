@@ -1,4 +1,4 @@
-package book.chapter1.UnionFind;
+package book.chapter1.section5_UnionFind;
 
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;

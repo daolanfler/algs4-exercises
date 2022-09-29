@@ -1,13 +1,13 @@
-package book.chapter1.UnionFind;
+package book.chapter1.section5_UnionFind;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class QuickUnionUF {
+public class QuickFindUF {
     private int[] id;
     private int count;
 
-    public QuickUnionUF(int N) {
+    public QuickFindUF(int N) {
         count = N;
         id = new int[N];
         for (int i = 0; i < N; i++)
@@ -24,10 +24,7 @@ public class QuickUnionUF {
 
     public int find(int p) {
         validate(p);
-        while(p != id[p]) {
-            p = id[p];
-        }
-        return p;
+        return id[p];
     }
 
     // validate that p is a valid index
@@ -40,28 +37,29 @@ public class QuickUnionUF {
 
 
     public void union(int p, int q) {
-        int pRoot = find(p);
-        int qRoot = find(q);
-        if (pRoot == qRoot) return;
-        id[pRoot] = qRoot;
+        int pID = find(p);
+        int qID = find(q);
+        if (qID == pID) return;
 
+        for (int i = 0; i < id.length; i++)
+            if (id[i] == pID) id[i] = qID;
         count--;
     }
 
     public static void main(String[] args) {
         int N = StdIn.readInt();
-        QuickUnionUF uf = new QuickUnionUF(N);
+        QuickFindUF quickFindUF = new QuickFindUF(N);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (uf.connected(p, q)) continue;
-            uf.union(p, q);
+            if (quickFindUF.connected(p, q)) continue;
+            quickFindUF.union(p, q);
             StdOut.println(p + " " + q);
 
         }
-        StdOut.println(uf.count() + " components");
+        StdOut.println(quickFindUF.count() + " components");
     }
 
 }
 
-// java-algs4 book/chapter1/UnionFind/QuickUnionUF.java < ~/Desktop/Algorithms/union-find/largeUF.txt 
+// java-algs4 book/chapter1/UnionFind/QuickFindUF.java < ~/Desktop/Algorithms/union-find/tinyUF.txt
