@@ -1,9 +1,10 @@
 package book.chapter1.section5_UnionFind;
 
+import chapter1.section5.UF;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-public class QuickFindUF {
+public class QuickFindUF implements UF {
     private int[] id;
     private int count;
 
