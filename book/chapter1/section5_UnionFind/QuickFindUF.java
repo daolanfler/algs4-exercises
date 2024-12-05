@@ -43,7 +43,7 @@ public class QuickFindUF implements UF {
         if (qID == pID) return;
 
         for (int i = 0; i < id.length; i++)
-            if (id[i] == pID) id[i] = qID;
+            if (id[i] == pID) id[i] = qID; // 这里我们不关心谁是Q谁是 P
         count--;
     }
 
@@ -63,4 +63,18 @@ public class QuickFindUF implements UF {
 
 }
 
-// java-algs4 book/chapter1/UnionFind/QuickFindUF.java < ~/Desktop/Algorithms/union-find/tinyUF.txt
+/**
+ * 如何运行这个代码呢？
+ * 首先编译出 class 文件：
+ * javac-algs4 book/chapter1/section5_UnionFind/QuickFindUF.java
+ * 然后执行下面的：（注意，没有 .java 的后缀！！！！）
+ * java-algs4 book/chapter1/section5_UnionFind/QuickFindUF  < chapter1/section5/tinyInput.txt
+ * 但是上面的方法会在 QuickFindUF.java 的目录生成一个 QuickFindUF.class 的文件。
+ *
+ * 当我们使用 IDEA 的时候，编译产物放到了 out 目录，可以这样
+ * java -cp "./out/production/algs4-exercises;./lib/algs4.jar" book/chapter1/section5_UnionFind/QuickFindUF < chapter1/section5/tinyInput.txt
+ * 使用 java-algs4 也是一样的
+ *
+ * 很可惜  < chapeter1/section5/tinyInput.txt 作为 args 在 run & debug configurations 里面并不起作用，所以这里还是只能手动运行
+ * https://stackoverflow.com/questions/28920762/intellij-run-config-input-file
+ */
