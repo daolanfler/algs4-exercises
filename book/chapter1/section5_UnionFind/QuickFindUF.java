@@ -75,6 +75,6 @@ public class QuickFindUF implements UF {
  * java -cp "./out/production/algs4-exercises;./lib/algs4.jar" book/chapter1/section5_UnionFind/QuickFindUF < chapter1/section5/tinyInput.txt
  * 使用 java-algs4 也是一样的
  *
- * 很可惜  < chapeter1/section5/tinyInput.txt 作为 args 在 run & debug configurations 里面并不起作用，所以这里还是只能手动运行
+ * 很可惜  < chapeter1/section5/tinyInput.txt 作为 args 在 vscode launch.json 的 run & debug configurations 里面并不起作用，所以这里还是只能手动运行
  * https://stackoverflow.com/questions/28920762/intellij-run-config-input-file
  */
